@@ -1,5 +1,5 @@
 # NSIS Code Maker
-NSIS Code Maker is an open source tool to write NSIS [NSIS (Nullsoft Scriptable Install System)](https://nsis.sourceforge.io "NSIS (Nullsoft Scriptable Install System)")
+NSIS Code Maker is an open source tool to write [NSIS (Nullsoft Scriptable Install System)](https://nsis.sourceforge.io "NSIS (Nullsoft Scriptable Install System)").
 
 
 [Full Documentation](https://centillionware.com/nsismaker/ "Full Documentation")
