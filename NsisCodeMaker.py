@@ -22,7 +22,7 @@ def ChangeOutputFile():
 
 def Generate():
     Format = (
-        ExeName.get(), ShortName.get(), Name.get(), ShortName.get(),
+        ExeName.get(), ShortName.get(), Name.get(), ExeOnShortcut.get(),
         Name.get(), InstallerDirectory.get(), Name.get(), Name.get()
     )
     with open("InstallerTemplate.nsi") as File:
@@ -75,8 +75,8 @@ ShortName.grid(row=4, column=2)
 Label5 = ttk.Label(text="Execute on Shortcut: ")
 Label5.grid(row=5, column=1)
 
-ExeOnShortCut = ttk.Entry()
-ExeOnShortCut.grid(row=5, column=2)
+ExeOnShortcut = ttk.Entry()
+ExeOnShortcut.grid(row=5, column=2)
 
 Label6 = ttk.Label(text="EXE Name: ")
 Label6.grid(row=6, column=1)
