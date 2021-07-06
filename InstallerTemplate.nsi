@@ -1,8 +1,17 @@
-# define name of installer
-OutFile "%s.exe"
+!include "MUI.nsh"
 
-# define installation directory
-InstallDir $LOCALAPPDATA\Programs\%s
+!define MUI_ABORTWARNING # This will warn the user if they exit from the installer.
+
+!insertmacro MUI_PAGE_WELCOME # Welcome to the installer page.
+!insertmacro MUI_PAGE_DIRECTORY # In which folder install page.
+!insertmacro MUI_PAGE_INSTFILES # Installing page.
+!insertmacro MUI_PAGE_FINISH # Finished installation page.
+
+!insertmacro MUI_LANGUAGE "English"
+
+Name "%s" # Name of the installer (usually the name of the application to install).
+OutFile "%s" # Name of the installer's file.
+InstallDir "$LOCALAPPDATA\Programs\%s" # Default installing folder
 
 # For removing Start Menu shortcut in Windows 7
 RequestExecutionLevel user
