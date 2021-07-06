@@ -72,7 +72,7 @@ Label4.grid(row=4, column=1)
 ShortName = ttk.Entry()
 ShortName.grid(row=4, column=2)
 
-Label5 = ttk.Label(text="Execute on ShortCut: ")
+Label5 = ttk.Label(text="Execute on Shortcut: ")
 Label5.grid(row=5, column=1)
 
 ExeOnShortCut = ttk.Entry()
