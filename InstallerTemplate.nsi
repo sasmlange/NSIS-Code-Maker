@@ -10,7 +10,7 @@
 !insertmacro MUI_LANGUAGE "English"
 
 Name "%s" # Name of the installer (usually the name of the application to install).
-OutFile "%s" # Name of the installer's file.
+OutFile "%s.exe" # Name of the installer's file.
 InstallDir "$LOCALAPPDATA\Programs\%s" # Default installing folder
 
 # For removing Start Menu shortcut in Windows 7
