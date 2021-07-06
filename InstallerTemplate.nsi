@@ -1,24 +1,24 @@
 # define name of installer
-OutFile "%s"
- 
+OutFile "%s.exe"
+
 # define installation directory
 InstallDir $LOCALAPPDATA\Programs\%s
- 
+
 # For removing Start Menu shortcut in Windows 7
 RequestExecutionLevel user
- 
+
 # start default section
 Section
- 
+
     # set the installation directory as the destination for the following actions
     SetOutPath $INSTDIR
- 
+
     # create the uninstaller
     WriteUninstaller "$INSTDIR\uninstall.exe"
- 
+
     # create a shortcut named "new shortcut" in the start menu programs directory
     # point the new shortcut at the program uninstaller
-    CreateShortcut "$SMPROGRAMS\%s.lnk" "$INSTDIR\%s"
+    CreateShortcut "$SMPROGRAMS\%s.lnk" "$INSTDIR\%s.exe"
     CreateShortcut "$SMPROGRAMS\%s Uninstall.lnk" "$INSTDIR\uninstall.exe"
 
     File /r "%s\*"
