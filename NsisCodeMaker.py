@@ -85,6 +85,6 @@ ExeName = ttk.Entry()
 ExeName.grid(row=6, column=2)
 
 SubmitButton = ttk.Button(text="Generate", command=Generate)
-SubmitButton.grid(row=6, column=2)
+SubmitButton.grid(row=7, column=2)
 
 Window.mainloop()
