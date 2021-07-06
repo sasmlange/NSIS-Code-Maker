@@ -79,10 +79,10 @@ ExeOnShortCut = ttk.Entry()
 ExeOnShortCut.grid(row=5, column=2)
 
 Label6 = ttk.Label(text="EXE Name: ")
-Label6.grid(row=5, column=1)
+Label6.grid(row=6, column=1)
 
 ExeName = ttk.Entry()
-ExeName.grid(row=5, column=2)
+ExeName.grid(row=6, column=2)
 
 SubmitButton = ttk.Button(text="Generate", command=Generate)
 SubmitButton.grid(row=6, column=2)
