@@ -22,7 +22,7 @@ def ChangeOutputFile():
 
 def Generate():
     Format = (
-        ExeName.get(), ShortName.get(), Name.get(), ExeOnShortcut.get(),
+        Name.get(), ExeName.get(), ShortName.get(), Name.get(), ExeOnShortcut.get(),
         Name.get(), InstallerDirectory.get(), Name.get(), Name.get()
     )
     with open("InstallerTemplate.nsi") as File:
