@@ -43,7 +43,25 @@ def Open():
     FileName = filedialog.askopenfilename(filetypes=[("NSIS Code Maker Files", "*.nscm"), ("All Files", "*.*")])
     with open(FileName) as File:
         Code = File.read()
+    Code = Code.split(";")
 
+    InstallerDirectory.delete(0, tk.END)
+    InstallerDirectory.insert(0, Code[0])
+
+    OutputFile.delete(0, tk.END)
+    OutputFile.insert(0, Code[1])
+
+    Name.delete(0, tk.END)
+    Name.insert(0, Code[2])
+
+    ShortName.delete(0, tk.END)
+    ShortName.insert(0, Code[3])
+
+    ExeOnShortcut.delete(0, tk.END)
+    ExeOnShortcut.insert(0, Code[4])
+
+    ExeName.delete(0, tk.END)
+    ExeName.insert(0, Code[5])
 
 Window = tk.Tk()
 Window.title("NSIS Code Maker")
