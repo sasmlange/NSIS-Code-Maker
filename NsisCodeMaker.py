@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
 from tkinter import messagebox
+import re
 
 
 def ChangeInstallerDirectory():
@@ -39,13 +40,19 @@ def Generate():
     messagebox.showinfo("Installer Created!", "The installer has been created!")
 
 
+def Open():
+    FileName = filedialog.askopenfilename(filetypes=[("NSIS Code Maker Files", "*.nscm"), ("All Files", "*.*")])
+    with open(FileName) as File:
+        Code = File.read()
+
+
 Window = tk.Tk()
 Window.title("NSIS Code Maker")
 
 MenuBar = tk.Menu(Window)
 Window.config(menu=MenuBar)
 
-MenuBar.add_command(label="Open...", Open)
+MenuBar.add_command(label="Open...", command=Open)
 
 
 Label1 = ttk.Label(text="Installer Directory: ")
