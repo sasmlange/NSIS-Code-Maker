@@ -1,3 +1,4 @@
+import sys
 import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
@@ -39,8 +40,9 @@ def Generate():
     messagebox.showinfo("Installer Created!", "The installer has been created!")
 
 
-def Open():
-    FileName = filedialog.askopenfilename(filetypes=[("NSIS Code Maker Files", "*.nscm"), ("All Files", "*.*")])
+def Open(FileName=None):
+    if FileName == None:
+        FileName = filedialog.askopenfilename(filetypes=[("NSIS Code Maker Files", "*.nscm"), ("All Files", "*.*")])
     with open(FileName) as File:
         Code = File.read()
     Code = Code.split(";")
@@ -62,6 +64,7 @@ def Open():
 
     ExeName.delete(0, tk.END)
     ExeName.insert(0, Code[5])
+
 
 Window = tk.Tk()
 Window.title("NSIS Code Maker")
@@ -118,3 +121,6 @@ SubmitButton = ttk.Button(text="Generate", command=Generate)
 SubmitButton.grid(row=7, column=2)
 
 Window.mainloop()
+
+if len(sys.argv) > 1:
+    Open(sys.argv[1])
