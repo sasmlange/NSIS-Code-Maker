@@ -42,6 +42,12 @@ def Generate():
 Window = tk.Tk()
 Window.title("NSIS Code Maker")
 
+MenuBar = tk.Menu(Window)
+Window.config(menu=MenuBar)
+
+MenuBar.add_command(label="Open...", Open)
+
+
 Label1 = ttk.Label(text="Installer Directory: ")
 Label1.grid(row=1, column=1)
 
