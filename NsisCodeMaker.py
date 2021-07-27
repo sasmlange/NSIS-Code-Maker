@@ -4,6 +4,8 @@ from tkinter import ttk
 from tkinter import filedialog
 from tkinter import messagebox
 
+SaveFile = ""
+OpenWith = False
 
 def ChangeInstallerDirectory():
     NewInstallerDirectory = filedialog.askdirectory()
@@ -40,10 +42,14 @@ def Generate():
     messagebox.showinfo("Installer Created!", "The installer has been created!")
 
 
-def Open(FileName=None):
-    if FileName == None:
-        FileName = filedialog.askopenfilename(filetypes=[("NSIS Code Maker Files", "*.nscm"), ("All Files", "*.*")])
-    with open(FileName) as File:
+def Open():
+    global SaveFile, OpenWith
+    if OpenWith == False:
+        SaveFile = filedialog.askopenfilename(filetypes=[("NSIS Code Maker Files", "*.nscm"), ("All Files", "*.*")])
+        if SaveFile == "":
+            return
+    OpenWith = False
+    with open(SaveFile) as File:
         Code = File.read()
     Code = Code.split(";")
 
@@ -65,6 +71,24 @@ def Open(FileName=None):
     ExeName.delete(0, tk.END)
     ExeName.insert(0, Code[5])
 
+def SaveAs():
+    global SaveFile
+    SaveFile = filedialog.asksaveasfilename(filetypes=[("NSIS Code Maker Files", "*.nscm"), ("All Files", "*.*")])
+    if SaveFile == "":
+        return
+    with open(SaveFile, "w") as File:
+        File.write(f"{InstallerDirectory.get()};{OutputFile.get()};{Name.get()};{ShortName.get()};{ExeOnShortcut.get()};{ExeName.get()}")
+
+def Save():
+    global SaveFile
+    if SaveFile == "":
+        SaveAs()
+        return
+
+    with open(SaveFile, "w") as File:
+        File.write(f"{InstallerDirectory.get()};{OutputFile.get()};{Name.get()};{ShortName.get()};{ExeOnShortcut.get()};{ExeName.get()}")
+
+
 
 Window = tk.Tk()
 Window.title("NSIS Code Maker")
@@ -73,6 +97,9 @@ MenuBar = tk.Menu(Window)
 Window.config(menu=MenuBar)
 
 MenuBar.add_command(label="Open...", command=Open)
+MenuBar.add_command(label="Save", command=Save)
+MenuBar.add_command(label="Save As...", command=SaveAs)
+
 
 
 Label1 = ttk.Label(text="Installer Directory: ")
@@ -123,4 +150,6 @@ SubmitButton.grid(row=7, column=2)
 Window.mainloop()
 
 if len(sys.argv) > 1:
-    Open(sys.argv[1])
+    SaveFile = sys.argv[1]
+    OpenWith = True
+    Open()
