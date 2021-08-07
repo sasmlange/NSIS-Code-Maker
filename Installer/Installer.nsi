@@ -10,8 +10,8 @@
 !insertmacro MUI_LANGUAGE "English"
 
 Name "NSIS Code Maker" # Name of the installer (usually the name of the application to install).
-OutFile "InstallNsisCodeMakerV2.exe" # Name of the installer's file.
-InstallDir "$LOCALAPPDATA\Programs\nsiscodemaker" # Default installing folder
+OutFile "InstallNsisCodeMakerV3.exe" # Name of the installer's file.
+InstallDir "$LOCALAPPDATA\Programs\NsisCodeMaker" # Default installing folder
 
 # For removing Start Menu shortcut in Windows 7
 RequestExecutionLevel user
