@@ -89,7 +89,6 @@ def Save():
         File.write(f"{InstallerDirectory.get()};{OutputFile.get()};{Name.get()};{ShortName.get()};{ExeOnShortcut.get()};{ExeName.get()}")
 
 
-
 Window = tk.Tk()
 Window.title("NSIS Code Maker")
 
