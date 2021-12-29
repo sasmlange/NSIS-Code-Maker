@@ -15,6 +15,18 @@ def ChangeInstallerDirectory():
     InstallerDirectory.insert(0, NewInstallerDirectory)
 
 
+def ChangeLicense():
+    NewLicenseFile = filedialog.askopenfilename(filetypes=[("All Accepted Files", "*.txt *.rtf"),
+                                                           ("Text Documents", "*.txt"),
+                                                           ("Rich Text File", "*.rtf"),
+                                                           ("All Files", "*")])
+
+    NewLicenseFile = NewLicenseFile.replace("/", "\\")
+
+    License.delete(0, tk.END)
+    License.insert(0, NewLicenseFile)
+
+
 def ChangeOutputFile():
     NewOutputFile = filedialog.asksaveasfilename(filetypes=[("NSIS Script Files", "*.nsi"), ("All Files", "*.*")])
     NewOutputFile = NewOutputFile.replace("/", "\\")
@@ -36,10 +48,10 @@ def Generate():
         with open(OutputFile.get(), "w") as File:
             File.write(InstallerText)
     except:
-        messagebox.showerror("Error", "Output Path Not Found")
+        messagebox.showerror("Script Generator", "Output Path Not Found")
         return
 
-    messagebox.showinfo("Installer Created!", "The installer has been created!")
+    messagebox.showinfo("Script Generator", "The installer has been created!")
 
 
 def Open():
@@ -131,20 +143,29 @@ Label4.grid(row=4, column=1)
 ShortName = ttk.Entry()
 ShortName.grid(row=4, column=2)
 
-Label5 = ttk.Label(text="Execute on Shortcut: ")
+Label5 = ttk.Label(text="License: ")
 Label5.grid(row=5, column=1)
 
-ExeOnShortcut = ttk.Entry()
-ExeOnShortcut.grid(row=5, column=2)
+License = ttk.Entry()
+License.grid(row=5, column=2)
 
-Label6 = ttk.Label(text="EXE Name: ")
+LicenseButton = ttk.Button(text="...", command=ChangeLicense)
+LicenseButton.grid(row=5, column=3)
+
+Label6 = ttk.Label(text="Execute on Shortcut: ")
 Label6.grid(row=6, column=1)
 
+ExeOnShortcut = ttk.Entry()
+ExeOnShortcut.grid(row=6, column=2)
+
+Label7 = ttk.Label(text="EXE Name: ")
+Label7.grid(row=7, column=1)
+
 ExeName = ttk.Entry()
-ExeName.grid(row=6, column=2)
+ExeName.grid(row=7, column=2)
 
 SubmitButton = ttk.Button(text="Generate", command=Generate)
-SubmitButton.grid(row=7, column=2)
+SubmitButton.grid(row=8, column=2)
 
 Window.mainloop()
 
