@@ -77,11 +77,14 @@ def Open():
     ShortName.delete(0, tk.END)
     ShortName.insert(0, Code[3])
 
+    License.delete(0, tk.END)
+    License.insert(0, Code[4])
+
     ExeOnShortcut.delete(0, tk.END)
-    ExeOnShortcut.insert(0, Code[4])
+    ExeOnShortcut.insert(0, Code[5])
 
     ExeName.delete(0, tk.END)
-    ExeName.insert(0, Code[5])
+    ExeName.insert(0, Code[6])
 
 def SaveAs():
     global SaveFile
