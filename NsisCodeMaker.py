@@ -111,8 +111,6 @@ MenuBar.add_command(label="Open...", command=Open)
 MenuBar.add_command(label="Save", command=Save)
 MenuBar.add_command(label="Save As...", command=SaveAs)
 
-
-
 Label1 = ttk.Label(text="Installer Directory: ")
 Label1.grid(row=1, column=1)
 
