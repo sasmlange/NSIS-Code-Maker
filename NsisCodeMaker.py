@@ -37,8 +37,8 @@ def ChangeOutputFile():
 
 def Generate():
     Format = (
-        Name.get(), ExeName.get(), ShortName.get(), Name.get(), ExeOnShortcut.get(),
-        Name.get(), InstallerDirectory.get(), Name.get(), Name.get()
+        License.get(), Name.get(), ExeName.get(), ShortName.get(), Name.get(),
+        ExeOnShortcut.get(), Name.get(), InstallerDirectory.get(), Name.get(), Name.get()
     )
     with open("InstallerTemplate.nsi") as File:
         InstallerText = File.read() % Format
