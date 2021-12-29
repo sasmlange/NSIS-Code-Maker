@@ -89,7 +89,7 @@ def SaveAs():
     if SaveFile == "":
         return
     with open(SaveFile, "w") as File:
-        File.write(f"{InstallerDirectory.get()};{OutputFile.get()};{Name.get()};{ShortName.get()};{ExeOnShortcut.get()};{ExeName.get()}")
+        File.write(f"{InstallerDirectory.get()};{OutputFile.get()};{Name.get()};{ShortName.get()};{License.get()};{ExeOnShortcut.get()};{ExeName.get()}")
 
 def Save():
     global SaveFile
@@ -98,7 +98,7 @@ def Save():
         return
 
     with open(SaveFile, "w") as File:
-        File.write(f"{InstallerDirectory.get()};{OutputFile.get()};{Name.get()};{ShortName.get()};{ExeOnShortcut.get()};{ExeName.get()}")
+        File.write(f"{InstallerDirectory.get()};{OutputFile.get()};{Name.get()};{ShortName.get()};{License.get()};{ExeOnShortcut.get()};{ExeName.get()}")
 
 
 Window = tk.Tk()
